@@ -15,6 +15,7 @@ if __name__ == '__main__':
 
     matrix = np.loadtxt(filename, delimiter=',')
 
+    # 隣接行列を隣接リストに変換
     adjacent = []
     for row in matrix:
         tmp = []
