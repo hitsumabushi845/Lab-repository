@@ -8,7 +8,7 @@ if __name__ == '__main__':
 
     ACoefficientFileName = str(input())
 
-    data = loadtxt(ACoefficientFileName, delimiter=',')
+    data = np.loadtxt(ACoefficientFileName, delimiter=',')
 
     matrix = data + data.T
 
