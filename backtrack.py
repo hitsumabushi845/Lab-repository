@@ -8,8 +8,10 @@ if __name__ == '__main__':
 
     ACoefficientFileName = str(input())
 
-    data = np.loadtxt(ACoefficientFileName, delimiter=',')
-
-    matrix = data + data.T
+    if ACoefficientFileName != '':
+        data = np.loadtxt(ACoefficientFileName, delimiter=',')
+        matrix = data + data.T
+    else:
+        matrix = np.array([[0,1,0],[1,1,0],[0,0,1]])
 
     print(matrix)
