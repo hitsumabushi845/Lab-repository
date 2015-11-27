@@ -13,6 +13,58 @@ upperQuantumNumber = int(input())
 if electrons == 2:
     #電子数が偶数の場合の処理(Jは整数値をとる)   
     print("Here is He like")
+
+    allStateNumber = 1 + (sum(np.arange(2, upperQuantumNumber+1, 1))*2) + (sum(np.arange(1, upperQuantumNumber, 1))*2)
+
+    aCoefficients = np.zeros((allStateNumber,allStateNumber))
+
+    tmplist = []
+    headerstr = ""
+    for n in np.arange(1, upperQuantumNumber+1, 1):
+        for l in range(n):
+            tmpstr = "1s"+str(n)+orbits[l]
+            if l == 0:
+                tmplist.append(tmpstr+" singlet S 0")
+                headerstr += tmpstr + " singlet S 0, "
+                if n != 1:
+                    tmplist.append(tmpstr+" triplet S 1")
+                    headerstr += tmpstr + " triplet S 1, "
+            else:
+                tmplist.append(tmpstr + " singlet " + orbits[l].upper() + "1")
+                tmplist.append(tmpstr + " triplet " + orbits[l].upper() + str(l-1))
+                tmplist.append(tmpstr + " triplet " + orbits[l].upper() + str(l))
+                tmplist.append(tmpstr + " triplet " + orbits[l].upper() + str(l+1))
+                headerstr += tmpstr + " singlet " + orbits[l].upper() + "1, "
+                headerstr += tmpstr + " triplet " + orbits[l].upper() + str(l-1) + ", "
+                headerstr += tmpstr + " triplet " + orbits[l].upper() + str(l) + ", "
+                headerstr += tmpstr + " triplet " + orbits[l].upper() + str(l+1) + ", "
+    print(tmplist)
+    #print(len(tmplist))
+    #print(allStateNumber)
+
+    i = 0
+    for stateA in tmplist:
+        for j in range(i+1):
+            if i != j:
+                print("A Coefficient " + stateA + " to " + tmplist[j])
+                tmp = input()
+                if tmp:
+                    aCoefficients[j][i] = float(tmp)
+                else:
+                    aCoefficients[j][i] = 0.0
+                #aCoefficients[i][j] = i * j
+        i+=1
+
+    headerstr = headerstr.rstrip(', ')
+    print(headerstr)
+    print("input aCoefficients File Name")
+    output_file = input()
+    if output_file:
+        np.savetxt(output_file, aCoefficients, header = headerstr, delimiter=',')
+        print("Saved.")
+    else:
+        print("Done.")
+
 elif electrons == 1:
     print("Here is H like")
     #電子数が奇数の場合の処理(Jは半整数値をとる)
