@@ -6,6 +6,7 @@
 - Matrix_to_List.py
 - Input_A_coefficients.py
 - graph.py
+- O_H_like_T.csv
 
 ### DataFile_to_CSVFile.py
 　電子捕獲断面積のデータ(Delimiter = whitespace)をCSVファイルに整形するプログラム
@@ -18,3 +19,6 @@
   
 ### graph.py
   グラフ探索のテストプログラム
+
+### O_H_like_T.csv
+  O VIII(H like)のA係数行列．プログラム実行テスト用のデータですがNISTのデータベースの値をちゃんと入力してあります．
