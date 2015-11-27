@@ -74,7 +74,7 @@ elif electrons == 1:
     #全状態の数からなる正方行列を確保する．全て浮動小数点数の0.0で初期化している．
     aCoefficients = np.zeros((allStateNumber,allStateNumber))
 
-    #辞書型を用いてnごとにナンバリングを行う．
+    #リストに状態を入れていく(A係数入力時にどのような遷移かわかるようにするため)
     tmplist = []
     headerstr = ""
     for n in np.arange(1,upperQuantumNumber+1,1):
