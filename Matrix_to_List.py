@@ -2,18 +2,21 @@ import numpy as np
 
 if __name__ == '__main__':
 
-#    matrix =    ((0, 1, 1, 0, 0, 0, 0),   # A 
-#                (1, 0, 1, 1, 0, 0, 0),   # B
-#                (1, 1, 0, 0, 1, 0, 0),   # C
-#                (0, 1, 0, 0, 1, 1, 0),   # D
-#                (0, 0, 1, 1, 0, 0, 1),   # E
-#                (0, 0, 0, 1, 0, 0, 0),   # F
-#                (0, 0, 0, 0, 1, 0, 0))   # G
+    tmpmatrix =    ((0, 1, 1, 0, 0, 0, 0),   # A 
+                (1, 0, 1, 1, 0, 0, 0),   # B
+                (1, 1, 0, 0, 1, 0, 0),   # C
+                (0, 1, 0, 0, 1, 1, 0),   # D
+                (0, 0, 1, 1, 0, 0, 1),   # E
+                (0, 0, 0, 1, 0, 0, 0),   # F
+                (0, 0, 0, 0, 1, 0, 0))   # G
 
     print("Input Filename.")
     filename = str(input())
 
-    matrix = np.loadtxt(filename, delimiter=',')
+    if filename:
+        matrix = np.loadtxt(filename, delimiter=',')
+    else:
+        matrix = tmpmatrix
 
     # 隣接行列を隣接リストに変換
     adjacent = []
@@ -29,6 +32,7 @@ if __name__ == '__main__':
     print("Input Outputfile name.")
     Outputfile = str(input())
 
-    np.savetxt(Outputfile, adjacent, delimiter=',')
+    if Outputfile:
+        np.savetxt(Outputfile, adjacent, delimiter=',')
 
 
