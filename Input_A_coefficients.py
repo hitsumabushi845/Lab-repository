@@ -120,6 +120,49 @@ elif electrons == 1:
     else:
         print("Done.")
    
+elif electrons == 0:
+    print("Here is Test mode.")
+    
+    allStateNumber = sum(np.arange(1,upperQuantumNumber+1,1))
+    aCoefficients = np.zeros((allStateNumber,allStateNumber))
+
+    #リストに状態を入れていく(A係数入力時にどのような遷移かわかるようにするため)
+    tmplist = []
+    headerstr = ""
+    for n in np.arange(1,upperQuantumNumber+1,1):
+        #print(n)
+        for l in range(n):
+            #print(l)
+            #print(str(n) + orbits[l])
+            tmplist.append(str(n)+orbits[l])
+            headerstr += str(n)+orbits[l]+', '
+
+    print(tmplist)
+
+    #順番にA係数を正方行列に格納していく．
+    i = 0
+    for stateA in tmplist:
+        for j in range(i+1):
+            if i != j:
+                print("A Coefficient " + stateA + " to " + tmplist[j])
+                tmp = input()
+                if tmp:
+                    aCoefficients[j][i] = float(tmp)
+                else:
+                    aCoefficients[j][i] = 0.0
+                #aCoefficients[i][j] = i * j
+        i+=1
+    
+    #print(aCoefficients)
+    headerstr = headerstr.rstrip(', ')
+    print(headerstr)
+    print("input aCoefficients File Name")
+    output_file = input()
+    if output_file:
+        np.savetxt(output_file, aCoefficients, header = headerstr, delimiter=',')
+        print("Saved.")
+    else:
+        print("Done.")
 else:
     print("Please Type 1 or 2.")
 
