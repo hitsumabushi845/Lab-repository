@@ -1,5 +1,18 @@
 import numpy as np
 
+def Matrix_to_CostedList(filename):
+    matrix = np.loadtxt(filename, delimiter=',')
+
+    adjacent = []
+    for row in matrix:
+        tmp = []
+        for value in range(len(row)):
+            if row[value] != 0:
+                tmp.append((value, row[value]))
+        adjacent.append(tmp)
+
+    return adjacent
+    
 if __name__ == '__main__':
 
     tmpmatrix =    ((0, 2, 1, 0, 0, 0, 0),   # A 
