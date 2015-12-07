@@ -17,6 +17,10 @@
 ### Input_A_coefficients.py
   アインシュタインのA係数を入力してCSVデータファイルを出力するプログラム
   
+### Input_A_coefficients_nx.py
+  上のプログラムのNetworkX使用版．出力するファイルはエッジリストです．
+  グラフ描画もできます．
+
 ### graph.py
   グラフ探索のテストプログラム
 
