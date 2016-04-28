@@ -9,7 +9,7 @@
 - O_H_like_T.csv
 
 ### DataFile_to_CSVFile.py
-　電子捕獲断面積のデータ(Delimiter = whitespace)をCSVファイルに整形するプログラム
+　DelimiterがWhitespaceのデータファイルをCSVファイルに整形するプログラム
 　
 ### Matrix_to_List.py
   隣接行列を隣接リストに変換するプログラム
